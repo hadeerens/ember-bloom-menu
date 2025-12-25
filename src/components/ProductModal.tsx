@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ShoppingCart } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCart } from '@/contexts/CartContext';
 import { MenuItem } from '@/data/menuItems';
+import { toast } from 'sonner';
 
 interface ProductModalProps {
   item: MenuItem | null;
@@ -12,6 +14,7 @@ interface ProductModalProps {
 
 const ProductModal: React.FC<ProductModalProps> = ({ item, isOpen, onClose }) => {
   const { language, t } = useLanguage();
+  const { addItem } = useCart();
 
   if (!item) return null;
 
@@ -165,8 +168,14 @@ const ProductModal: React.FC<ProductModalProps> = ({ item, isOpen, onClose }) =>
                   transition={{ delay: 0.8 }}
                   whileHover={{ scale: 1.02, boxShadow: 'var(--shadow-glow-md)' }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 rounded-xl gradient-animated text-primary-foreground font-semibold text-lg shadow-glow-sm transition-all duration-300"
+                  onClick={() => {
+                    addItem(item);
+                    toast.success(language === 'ar' ? 'تمت الإضافة للسلة!' : 'Added to cart!');
+                    onClose();
+                  }}
+                  className="w-full py-4 rounded-xl gradient-animated text-primary-foreground font-semibold text-lg shadow-glow-sm transition-all duration-300 flex items-center justify-center gap-3"
                 >
+                  <ShoppingCart className="w-5 h-5" />
                   {t('menu.addToOrder')}
                 </motion.button>
               </motion.div>

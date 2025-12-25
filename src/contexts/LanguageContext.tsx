@@ -13,6 +13,7 @@ interface LanguageContextType {
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Navigation
+    'nav.home': 'Home',
     'nav.menu': 'Menu',
     'nav.categories': 'Categories',
     'nav.about': 'About',
@@ -40,12 +41,29 @@ const translations: Record<Language, Record<string, string>> = {
     'menu.ingredients': 'Ingredients',
     'menu.price': 'Price',
     
+    // Cart
+    'cart.title': 'Your Order',
+    'cart.empty': 'Your cart is empty',
+    'cart.total': 'Total',
+    'cart.sendWhatsApp': 'Send Order via WhatsApp',
+    'cart.clear': 'Clear Cart',
+    
+    // Waiter
+    'waiter.title': 'Call Waiter',
+    'waiter.subtitle': 'Enter your table number',
+    'waiter.tableLabel': 'Table Number',
+    'waiter.tablePlaceholder': '00',
+    'waiter.call': 'Call Now',
+    'waiter.called': 'Waiter has been notified!',
+    'waiter.enterTable': 'Please enter table number',
+    
     // Footer
     'footer.rights': 'All rights reserved',
     'footer.crafted': 'Crafted with passion',
   },
   ar: {
     // Navigation
+    'nav.home': 'الرئيسية',
     'nav.menu': 'المنيو',
     'nav.categories': 'الأقسام',
     'nav.about': 'عننا',
@@ -72,6 +90,22 @@ const translations: Record<Language, Record<string, string>> = {
     'menu.close': 'قفل',
     'menu.ingredients': 'المكونات',
     'menu.price': 'السعر',
+    
+    // Cart
+    'cart.title': 'طلبك',
+    'cart.empty': 'السلة فاضية',
+    'cart.total': 'الإجمالي',
+    'cart.sendWhatsApp': 'ابعت الأوردر على واتساب',
+    'cart.clear': 'فضي السلة',
+    
+    // Waiter
+    'waiter.title': 'نادي الجرسون',
+    'waiter.subtitle': 'اكتب رقم الطاولة بتاعتك',
+    'waiter.tableLabel': 'رقم الطاولة',
+    'waiter.tablePlaceholder': '00',
+    'waiter.call': 'نادي دلوقتي',
+    'waiter.called': 'الجرسون في السكة!',
+    'waiter.enterTable': 'اكتب رقم الطاولة الأول',
     
     // Footer
     'footer.rights': 'كل الحقوق محفوظة',

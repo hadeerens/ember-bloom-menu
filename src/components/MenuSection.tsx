@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { menuItems, MenuItem } from '@/data/menuItems';
 import MenuCard3D from './MenuCard3D';
+import MenuCardSkeleton from './MenuCardSkeleton';
 import CategoryFilter from './CategoryFilter';
 import ProductModal from './ProductModal';
 
@@ -11,6 +12,13 @@ const MenuSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredItems = useMemo(() => {
     return menuItems.filter((item) => {
@@ -96,22 +104,29 @@ const MenuSection: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4 }}
-              >
-                <MenuCard3D 
-                  item={item} 
-                  onSelect={setSelectedItem}
-                  index={index}
-                />
-              </motion.div>
-            ))}
+            {isLoading ? (
+              // Skeleton loading
+              [...Array(6)].map((_, index) => (
+                <MenuCardSkeleton key={`skeleton-${index}`} />
+              ))
+            ) : (
+              filteredItems.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <MenuCard3D 
+                    item={item} 
+                    onSelect={setSelectedItem}
+                    index={index}
+                  />
+                </motion.div>
+              ))
+            )}
           </AnimatePresence>
         </motion.div>
 
