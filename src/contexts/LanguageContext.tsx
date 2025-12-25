@@ -46,15 +46,15 @@ const translations: Record<Language, Record<string, string>> = {
   },
   ar: {
     // Navigation
-    'nav.menu': 'القائمة',
-    'nav.categories': 'الأصناف',
-    'nav.about': 'عنا',
-    'nav.contact': 'اتصل بنا',
+    'nav.menu': 'المنيو',
+    'nav.categories': 'الأقسام',
+    'nav.about': 'عننا',
+    'nav.contact': 'كلمنا',
     
     // Hero
-    'hero.title': 'تميز الطهي',
-    'hero.subtitle': 'اختبر تناول الطعام بطريقة جديدة من خلال نكهات غامرة',
-    'hero.cta': 'استكشف القائمة',
+    'hero.title': 'أكل على أصوله',
+    'hero.subtitle': 'جرب تجربة أكل مختلفة بنكهات تاخدك لعالم تاني',
+    'hero.cta': 'شوف المنيو',
     
     // Categories
     'categories.all': 'الكل',
@@ -64,18 +64,18 @@ const translations: Record<Language, Record<string, string>> = {
     'categories.drinks': 'المشروبات',
     
     // Menu
-    'menu.title': 'قائمتنا',
-    'menu.subtitle': 'صُنعت بشغف، تُقدم بأناقة',
-    'menu.search': 'ابحث عن الأطباق...',
-    'menu.addToOrder': 'أضف للطلب',
-    'menu.viewDetails': 'عرض التفاصيل',
-    'menu.close': 'إغلاق',
+    'menu.title': 'المنيو بتاعنا',
+    'menu.subtitle': 'معمول بحب، ومقدم بذوق',
+    'menu.search': 'دور على أكلة...',
+    'menu.addToOrder': 'ضيف للأوردر',
+    'menu.viewDetails': 'شوف التفاصيل',
+    'menu.close': 'قفل',
     'menu.ingredients': 'المكونات',
     'menu.price': 'السعر',
     
     // Footer
-    'footer.rights': 'جميع الحقوق محفوظة',
-    'footer.crafted': 'صُنع بشغف',
+    'footer.rights': 'كل الحقوق محفوظة',
+    'footer.crafted': 'معمول بحب',
   },
 };
 
